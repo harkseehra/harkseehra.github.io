@@ -154,6 +154,18 @@ article pre code {
   padding: 0;
 }
 
+/* ── Mobile type scale ── */
+@media (max-width: 680px) {
+  :root {
+    --t-base: 1.0625rem;
+    --measure: 100%;
+  }
+
+  main {
+    padding: 2.5rem 1.25rem;
+  }
+}
+
 /* ── Emoji — hold to body size ── */
 .emoji {
   font-style: normal;
