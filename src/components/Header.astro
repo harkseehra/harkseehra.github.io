@@ -8,25 +8,58 @@ const nav = [
 const current = Astro.url.pathname;
 ---
 <header>
-  <a class="site-name" href="/">HARKHY · حركي</a>
-  <nav>
-    {nav.map(({ href, label }) => (
-      <a href={href} class:list={[{ active: current.startsWith(href) }]}>
-        [{label}]
-      </a>
-    ))}
-  </nav>
+  <a class="site-name" href="/">
+    HARKHY · حركي<span class="cursor" aria-hidden="true">▌</span>
+  </a>
+  <div class="header-right">
+    <nav>
+      {nav.map(({ href, label }) => (
+        <a href={href} class:list={[{ active: current.startsWith(href) }]}>
+          [{label}]
+        </a>
+      ))}
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle day/night mode" title="Toggle day/night">
+      <span class="theme-icon">◑</span>
+    </button>
+  </div>
 </header>
+
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+  const icon = btn?.querySelector('.theme-icon');
+
+  const saved = localStorage.getItem('theme') ?? 'night';
+  applyTheme(saved);
+
+  btn?.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') === 'day' ? 'night' : 'day';
+    applyTheme(current);
+    localStorage.setItem('theme', current);
+  });
+
+  function applyTheme(theme: string) {
+    if (theme === 'day') {
+      root.setAttribute('data-theme', 'day');
+      if (icon) icon.textContent = '○';
+    } else {
+      root.removeAttribute('data-theme');
+      if (icon) icon.textContent = '◑';
+    }
+  }
+</script>
 
 <style>
 header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.75rem;
   padding: 1.5rem;
   border-bottom: 1px solid var(--rule);
+  transition: border-color 0.3s ease;
 }
 
 .site-name {
@@ -36,11 +69,26 @@ header {
   letter-spacing: 0.12em;
   color: var(--ink-bright);
   text-decoration: none;
+  background-image: none;
 }
 
 .site-name:hover {
+  background-image: none;
   background: var(--ink-bright);
   color: var(--paper);
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+  color: var(--ink);
+  margin-left: 1px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 nav {
@@ -57,7 +105,25 @@ nav a {
 
 nav a:hover,
 nav a.active {
-  background: var(--ink);
+  background-size: 100% 100%;
   color: var(--paper);
+}
+
+.theme-toggle {
+  font-family: var(--font-mono);
+  font-size: var(--t-base);
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--ink-dim);
+  cursor: pointer;
+  padding: 0.15rem 0.5rem;
+  line-height: 1;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.theme-toggle:hover {
+  border-color: var(--ink);
+  color: var(--paper);
+  background: var(--ink);
 }
 </style>

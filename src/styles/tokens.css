@@ -1,5 +1,5 @@
 :root {
-  /* Palette — scholar's terminal */
+  /* Palette — night mode (default) */
   --ink:        #d4a855;
   --ink-dim:    #9a7a3d;
   --ink-bright: #f0c878;
@@ -7,6 +7,9 @@
   --paper-raised: #15110a;
   --rule:       #3a2e1a;
   --accent:     #c85a3a;
+
+  /* Transition for theme switching */
+  --theme-transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 
   /* Type */
   --font-serif: "Iowan Old Style", "Source Serif Pro", "Palatino Linotype",
@@ -29,4 +32,15 @@
   --t-xl:   1.625rem;
   --t-2xl:  2.25rem;
   --t-3xl:  3rem;
+}
+
+[data-theme="day"] {
+  /* Palette — day mode (manuscript parchment) */
+  --ink:        #5c3d0a;
+  --ink-dim:    #8a6030;
+  --ink-bright: #2a1505;
+  --paper:      #f5edd8;
+  --paper-raised: #ede0c4;
+  --rule:       #c8b48a;
+  --accent:     #c85a3a;
 }

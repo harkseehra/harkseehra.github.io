@@ -23,6 +23,11 @@ const siteTitle = title === 'Harkhy' ? 'Harkhy · حركي' : `${title} · Harkh
     <title>{siteTitle}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate" type="application/rss+xml" title="Harkhy" href="/rss.xml" />
+    <!-- Apply saved theme before paint to prevent flash -->
+    <script is:inline>
+      const t = localStorage.getItem('theme');
+      if (t === 'day') document.documentElement.setAttribute('data-theme', 'day');
+    </script>
   </head>
   <body>
     <Header />
