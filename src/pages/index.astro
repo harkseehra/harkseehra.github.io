@@ -2,15 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Divider from '../components/Divider.astro';
 import { getCollection } from 'astro:content';
+// quotes collection removed
 
 const essays = (await getCollection('essays', e => !e.data.draft))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const stories = (await getCollection('stories', s => !s.data.draft))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-const quotes = await getCollection('quotes');
-const randomOldQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
 const latestEssay = essays[0];
 const latestStory = stories[0];
@@ -58,17 +56,6 @@ const epigraph = epigraphs[Math.floor(Math.random() * epigraphs.length)];
       ) : <p class="dim">No stories yet.</p>}
     </div>
 
-    <div class="latest-col">
-      <p class="col-label">FROM THE ARCHIVE</p>
-      {randomOldQuote && (
-        <>
-          <p class="archive-quote">"{randomOldQuote.data.text}"</p>
-          {randomOldQuote.data.source && (
-            <p class="archive-source">from "{randomOldQuote.data.source}"</p>
-          )}
-        </>
-      )}
-    </div>
   </div>
 
   <Divider />
@@ -78,7 +65,7 @@ const epigraph = epigraphs[Math.floor(Math.random() * epigraphs.length)];
       I write psychology of patterns and behaviours — the art of understanding why human beings act the way they do.
       Spirituality, philosophy, satire, and the occasional parable. Multilingual, unfiltered, original.
     </p>
-    <a href="/about">[read more about Harkhy →]</a>
+    <a href="/about">[read more →]</a>
   </div>
 </BaseLayout>
 
@@ -100,7 +87,7 @@ const epigraph = epigraphs[Math.floor(Math.random() * epigraphs.length)];
 
 .latest-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
   margin: 2rem 0;
 }

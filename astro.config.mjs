@@ -7,7 +7,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkSmartypants from 'remark-smartypants';
 
 export default defineConfig({
-  site: 'https://harkhy.ca',
+  site: 'https://harkseehra.github.io',
   integrations: [mdx(), sitemap()],
   markdown: {
     rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],

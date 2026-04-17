@@ -1,43 +1,73 @@
-# Astro Starter Kit: Minimal
+# THE TRUTH · حقیقت
+
+Personal writing site by Harkirat Seehra. Essays on behavioural psychology, philosophy, and spirituality. Stories — parables, prophetic retellings, original fiction. Multilingual.
+
+Built with [Astro](https://astro.build) v6, static output, deployed on Cloudflare Pages.
+
+## Dev
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev        # localhost:4321
+npm run build      # production build → ./dist/
+npm run preview    # preview built site locally
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Content
 
-## 🚀 Project Structure
+Content lives in `src/content/`:
 
-Inside of your Astro project, you'll see the following folders and files:
+- `essays/` — `.md` files with frontmatter: `title`, `date`, `category`, `epigraph?`, `tags?`, `draft?`
+- `stories/` — `.md` files with frontmatter: `title`, `titleNative?`, `date`, `tradition?`, `status`, `inspiredBy?`, `draft?`
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+Source documents are in `content-source/`. To re-run the migration script:
+
+```sh
+node scripts/migrate.mjs
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Images go in `public/images/essays-assets/` or `public/images/stories-assets/`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Deploy (Cloudflare Pages)
 
-Any static assets, like images, can be placed in the `public/` directory.
+1. Connect repo to Cloudflare Pages
+2. Build command: `npm run build`
+3. Output directory: `dist`
+4. Node version: `20` (set via environment variable `NODE_VERSION=20`)
 
-## 🧞 Commands
+The site is configured for `https://harkhy.ca` in `astro.config.mjs`.
 
-All commands are run from the root of the project, from a terminal:
+## Structure
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```
+src/
+  content/
+    essays/          # 42 essays as .md
+    stories/         # 9 stories as .md
+  layouts/
+    BaseLayout.astro
+    EssayLayout.astro
+    StoryLayout.astro
+  pages/
+    index.astro
+    essays/[slug].astro
+    stories/[slug].astro
+    rss.xml.ts
+    correspondence.astro
+  styles/
+    tokens.css       # CSS custom properties, palette, type scale
+    global.css       # resets, animations, prose styles
+  components/
+    Header.astro
+    Footer.astro
+    Divider.astro
+    PostMeta.astro
+public/
+  favicon.svg        # ح glyph, amber on dark
+  og.svg             # Open Graph image
+  images/
+    essays-assets/
+    stories-assets/
+scripts/
+  migrate.mjs        # splits monolithic .md → individual content files
+```

@@ -1,13 +1,6 @@
 ---
-import { getCollection } from 'astro:content';
-
-const quotes = await getCollection('quotes');
-const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 ---
 <footer>
-  {randomQuote && (
-    <p class="footer-quote">"{randomQuote.data.text}"</p>
-  )}
   <p class="footer-copy">© Harkirat Seehra · THE TRUTH · حقیقت · All writing original unless cited</p>
   <p class="footer-links">
     <a href="/rss.xml">[RSS]</a>
