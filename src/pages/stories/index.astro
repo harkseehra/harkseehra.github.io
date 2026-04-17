@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const stories = (await getCollection('stories', s => !s.data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const byYear = stories.reduce((acc, s) => {
+  const year = s.data.date.getFullYear().toString();
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(s);
+  return acc;
+}, {} as Record<string, typeof stories>);
+
+const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
+---
+<BaseLayout title="Stories" description="Parables, prophetic stories, and fiction by Harkirat Seehra.">
+  <h1 class="page-title">STORIES</h1>
+
+  {years.map(year => (
+    <section class="year-group">
+      <p class="year-header">{year}</p>
+      <table>
+        <tbody>
+          {byYear[year].map(s => (
+            <tr>
+              <td class="col-date">{s.data.date.toISOString().slice(0, 10)}</td>
+              <td class="col-title">
+                <a href={`/stories/${s.id}`}>{s.data.title}</a>
+                {s.data.titleNative && (
+                  <span class="title-native"> · {s.data.titleNative}</span>
+                )}
+                {s.data.status === 'in-progress' && (
+                  <span class="status-tag"> [IN PROGRESS]</span>
+                )}
+              </td>
+              <td class="col-cat">{s.data.tradition?.toUpperCase()}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  ))}
+</BaseLayout>
+
+<style>
+.page-title {
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  letter-spacing: 0.15em;
+  color: var(--ink-dim);
+  margin-bottom: 2.5rem;
+}
+
+.year-group {
+  margin-bottom: 3rem;
+}
+
+.year-header {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.12em;
+  color: var(--ink-dim);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 1px solid var(--rule);
+}
+
+td {
+  padding: 0.6rem 0.5rem;
+  vertical-align: top;
+}
+
+.col-date {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--ink-dim);
+  white-space: nowrap;
+  width: 7rem;
+}
+
+.col-title a {
+  font-family: var(--font-serif);
+  font-size: var(--t-base);
+  color: var(--ink-bright);
+}
+
+.title-native {
+  font-family: var(--font-naskh);
+  color: var(--ink);
+  direction: rtl;
+}
+
+.status-tag {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--accent);
+}
+
+.col-cat {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--ink-dim);
+  letter-spacing: 0.06em;
+  text-align: right;
+  white-space: nowrap;
+}
+</style>

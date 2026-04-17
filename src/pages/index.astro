@@ -1,17 +1,181 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Divider from '../components/Divider.astro';
+import { getCollection } from 'astro:content';
 
+const essays = (await getCollection('essays', e => !e.data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const stories = (await getCollection('stories', s => !s.data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const quotes = await getCollection('quotes');
+const randomOldQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+const latestEssay = essays[0];
+const latestStory = stories[0];
+
+const epigraphs = [
+  "The acceptance is the key to eternity.",
+  "Win the mind, win the world.",
+  "Life is a flow itself — its nature is to keep moving.",
+  "Every problem is an opportunity.",
+  "Pain is medicine, happiness is a disease.",
+  "You are that same 5 year old who recently gained consciousness.",
+];
+const epigraph = epigraphs[Math.floor(Math.random() * epigraphs.length)];
 ---
+<BaseLayout title="Harkhy">
+  <div class="epigraph-block">
+    <p class="epigraph">{epigraph}</p>
+  </div>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  <Divider />
+
+  <div class="latest-grid">
+    <div class="latest-col">
+      <p class="col-label">LATEST ESSAY</p>
+      {latestEssay ? (
+        <>
+          <a class="post-title" href={`/essays/${latestEssay.id}`}>{latestEssay.data.title}</a>
+          <p class="post-date">{latestEssay.data.date.toISOString().split('T')[0]}</p>
+        </>
+      ) : <p class="dim">No essays yet.</p>}
+    </div>
+
+    <div class="latest-col">
+      <p class="col-label">LATEST STORY</p>
+      {latestStory ? (
+        <>
+          <a class="post-title" href={`/stories/${latestStory.id}`}>{latestStory.data.title}</a>
+          {latestStory.data.titleNative && (
+            <p class="title-native">{latestStory.data.titleNative}</p>
+          )}
+          {latestStory.data.status === 'in-progress' && (
+            <span class="status-tag">[IN PROGRESS]</span>
+          )}
+        </>
+      ) : <p class="dim">No stories yet.</p>}
+    </div>
+
+    <div class="latest-col">
+      <p class="col-label">FROM THE ARCHIVE</p>
+      {randomOldQuote && (
+        <>
+          <p class="archive-quote">"{randomOldQuote.data.text}"</p>
+          {randomOldQuote.data.source && (
+            <p class="archive-source">from "{randomOldQuote.data.source}"</p>
+          )}
+        </>
+      )}
+    </div>
+  </div>
+
+  <Divider />
+
+  <div class="about-blurb">
+    <p>
+      I write psychology of patterns and behaviours — the art of understanding why human beings act the way they do.
+      Spirituality, philosophy, satire, and the occasional parable. Multilingual, unfiltered, original.
+    </p>
+    <a href="/about">[read more about Harkhy →]</a>
+  </div>
+</BaseLayout>
+
+<style>
+.epigraph-block {
+  text-align: center;
+  padding: 3rem 0 1.5rem;
+}
+
+.epigraph {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--t-xl);
+  color: var(--ink);
+  max-width: var(--measure);
+  margin: 0 auto;
+  line-height: var(--leading);
+}
+
+.latest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 680px) {
+  .latest-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.col-label {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--ink-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.5rem;
+}
+
+.post-title {
+  font-family: var(--font-serif);
+  font-size: var(--t-lg);
+  color: var(--ink-bright);
+  display: block;
+  margin-bottom: 0.5rem;
+  line-height: var(--leading-tight);
+}
+
+.post-date {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--ink-dim);
+}
+
+.title-native {
+  font-family: var(--font-naskh);
+  font-size: var(--t-base);
+  color: var(--ink);
+  direction: rtl;
+  margin-bottom: 0.4rem;
+}
+
+.status-tag {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--accent);
+}
+
+.archive-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--t-base);
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.archive-source {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--ink-dim);
+}
+
+.about-blurb {
+  max-width: var(--measure);
+}
+
+.about-blurb p {
+  color: var(--ink-dim);
+  margin-bottom: 0.75rem;
+}
+
+.about-blurb a {
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  color: var(--ink-dim);
+}
+</style>

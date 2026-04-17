@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const essays = (await getCollection('essays', e => !e.data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const byYear = essays.reduce((acc, e) => {
+  const year = e.data.date.getFullYear().toString();
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(e);
+  return acc;
+}, {} as Record<string, typeof essays>);
+
+const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
+---
+<BaseLayout title="Essays" description="All essays by Harkirat Seehra.">
+  <h1 class="page-title">ESSAYS</h1>
+
+  {years.map(year => (
+    <section class="year-group">
+      <p class="year-header">{year}</p>
+      <table>
+        <tbody>
+          {byYear[year].map(e => (
+            <tr>
+              <td class="col-date">{e.data.date.toISOString().slice(0, 10)}</td>
+              <td class="col-title">
+                <a href={`/essays/${e.id}`}>{e.data.title}</a>
+              </td>
+              <td class="col-cat">{e.data.category.toUpperCase()}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  ))}
+</BaseLayout>
+
+<style>
+.page-title {
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  letter-spacing: 0.15em;
+  color: var(--ink-dim);
+  margin-bottom: 2.5rem;
+}
+
+.year-group {
+  margin-bottom: 3rem;
+}
+
+.year-header {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.12em;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 1px solid var(--rule);
+}
+
+td {
+  padding: 0.6rem 0.5rem;
+  vertical-align: top;
+}
+
+.col-date {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--ink-dim);
+  white-space: nowrap;
+  width: 7rem;
+}
+
+.col-title a {
+  font-family: var(--font-serif);
+  font-size: var(--t-base);
+  color: var(--ink-bright);
+}
+
+.col-cat {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--ink-dim);
+  letter-spacing: 0.06em;
+  text-align: right;
+  white-space: nowrap;
+}
+</style>

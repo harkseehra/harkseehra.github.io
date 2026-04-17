@@ -1,0 +1,37 @@
+---
+import EssayLayout from '../../layouts/EssayLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const essays = (await getCollection('essays', e => !e.data.draft))
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+  return essays.map((essay, i) => ({
+    params: { slug: essay.id },
+    props: {
+      essay,
+      index: essays.length - i,
+      prevPost: essays[i + 1] ? { slug: essays[i + 1].id, title: essays[i + 1].data.title } : undefined,
+      nextPost: essays[i - 1] ? { slug: essays[i - 1].id, title: essays[i - 1].data.title } : undefined,
+    },
+  }));
+}
+
+const { essay, index, prevPost, nextPost } = Astro.props;
+const { Content } = await render(essay);
+const wordCount = (essay.body ?? '').split(/\s+/).length;
+const description = (essay.body ?? '').replace(/[#>*_`\[\]]/g, '').trim().slice(0, 155);
+---
+<EssayLayout
+  title={essay.data.title}
+  date={essay.data.date}
+  category={essay.data.category}
+  wordCount={wordCount}
+  index={index}
+  description={description}
+  epigraph={essay.data.epigraph}
+  prevPost={prevPost}
+  nextPost={nextPost}
+>
+  <Content />
+</EssayLayout>

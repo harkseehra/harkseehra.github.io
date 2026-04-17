@@ -1,0 +1,39 @@
+---
+import StoryLayout from '../../layouts/StoryLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const stories = (await getCollection('stories', s => !s.data.draft))
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+  return stories.map((story, i) => ({
+    params: { slug: story.id },
+    props: {
+      story,
+      index: stories.length - i,
+      prevPost: stories[i + 1] ? { slug: stories[i + 1].id, title: stories[i + 1].data.title } : undefined,
+      nextPost: stories[i - 1] ? { slug: stories[i - 1].id, title: stories[i - 1].data.title } : undefined,
+    },
+  }));
+}
+
+const { story, index, prevPost, nextPost } = Astro.props;
+const { Content } = await render(story);
+const wordCount = (story.body ?? '').split(/\s+/).length;
+const description = (story.body ?? '').replace(/[#>*_`\[\]]/g, '').trim().slice(0, 155);
+---
+<StoryLayout
+  title={story.data.title}
+  titleNative={story.data.titleNative}
+  date={story.data.date}
+  tradition={story.data.tradition}
+  wordCount={wordCount}
+  index={index}
+  status={story.data.status}
+  inspiredBy={story.data.inspiredBy}
+  description={description}
+  prevPost={prevPost}
+  nextPost={nextPost}
+>
+  <Content />
+</StoryLayout>

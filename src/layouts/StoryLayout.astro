@@ -1,0 +1,106 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import PostMeta from '../components/PostMeta.astro';
+import Divider from '../components/Divider.astro';
+
+interface Props {
+  title: string;
+  titleNative?: string;
+  date: Date;
+  tradition?: string;
+  wordCount: number;
+  index: number;
+  status: string;
+  inspiredBy?: string;
+  description?: string;
+  prevPost?: { slug: string; title: string };
+  nextPost?: { slug: string; title: string };
+}
+
+const { title, titleNative, date, tradition, wordCount, index, status, inspiredBy, description, prevPost, nextPost } = Astro.props;
+---
+<BaseLayout title={title} description={description}>
+  <article>
+    {tradition && <p class="category-tag">{tradition.toUpperCase()}</p>}
+    <h1>{title}</h1>
+    {titleNative && <p class="title-native">{titleNative}</p>}
+    <PostMeta date={date} words={wordCount} index={index} />
+    {status === 'in-progress' && <p class="status-tag">[IN PROGRESS]</p>}
+    {inspiredBy && <p class="inspired-by">As always inspired by {inspiredBy}</p>}
+
+    <slot />
+  </article>
+
+  <Divider />
+
+  <nav class="post-nav">
+    {prevPost && (
+      <a href={`/stories/${prevPost.slug}`} class="prev">
+        ← [{prevPost.title}]
+      </a>
+    )}
+    {nextPost && (
+      <a href={`/stories/${nextPost.slug}`} class="next">
+        [{nextPost.title}] →
+      </a>
+    )}
+  </nav>
+</BaseLayout>
+
+<style>
+.category-tag {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--ink-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-family: var(--font-serif);
+  font-size: var(--t-2xl);
+  color: var(--ink-bright);
+  line-height: var(--leading-tight);
+  margin-bottom: 0.5rem;
+}
+
+.title-native {
+  font-family: var(--font-naskh);
+  font-size: var(--t-xl);
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+  direction: rtl;
+}
+
+.status-tag {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.inspired-by {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--ink-dim);
+  font-size: var(--t-sm);
+  margin-bottom: 2rem;
+}
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  color: var(--ink-dim);
+  margin-top: 1rem;
+}
+
+.post-nav a {
+  color: var(--ink-dim);
+}
+
+.post-nav .next {
+  margin-left: auto;
+}
+</style>

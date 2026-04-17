@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const quotes = await getCollection('quotes');
+---
+<BaseLayout title="Quotes" description="Aphorisms and lines from the writing of Harkirat Seehra.">
+  <h1 class="page-title">QUOTES</h1>
+
+  <ul class="quotes-list">
+    {quotes.map(q => (
+      <li class="quote-item">
+        <p class="quote-text">"{q.data.text}"</p>
+        {q.data.source && (
+          <p class="quote-source">→ from "{q.data.source}"</p>
+        )}
+        <hr class="quote-rule" />
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+
+<style>
+.page-title {
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  letter-spacing: 0.15em;
+  color: var(--ink-dim);
+  margin-bottom: 2.5rem;
+}
+
+.quotes-list {
+  list-style: none;
+  padding: 0;
+}
+
+.quote-item {
+  margin-bottom: 0;
+}
+
+.quote-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--t-lg);
+  color: var(--ink);
+  line-height: var(--leading);
+  margin-bottom: 0.5rem;
+}
+
+.quote-source {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--ink-dim);
+  margin-bottom: 1.5rem;
+}
+
+.quote-rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 1.5rem 0;
+}
+</style>

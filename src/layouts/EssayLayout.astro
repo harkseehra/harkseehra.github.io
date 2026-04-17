@@ -1,0 +1,102 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import PostMeta from '../components/PostMeta.astro';
+import Divider from '../components/Divider.astro';
+
+interface Props {
+  title: string;
+  date: Date;
+  category: string;
+  wordCount: number;
+  index: number;
+  description?: string;
+  epigraph?: { text: string; attribution?: string };
+  prevPost?: { slug: string; title: string };
+  nextPost?: { slug: string; title: string };
+}
+
+const { title, date, category, wordCount, index, description, epigraph, prevPost, nextPost } = Astro.props;
+---
+<BaseLayout title={title} description={description}>
+  <article>
+    <p class="category-tag">{category.toUpperCase()}</p>
+    <h1>{title}</h1>
+    <PostMeta date={date} words={wordCount} category={category} index={index} />
+
+    {epigraph && (
+      <blockquote class="epigraph">
+        <p>{epigraph.text}</p>
+        {epigraph.attribution && <cite>— {epigraph.attribution}</cite>}
+      </blockquote>
+    )}
+
+    <slot />
+  </article>
+
+  <Divider />
+
+  <nav class="post-nav">
+    {prevPost && (
+      <a href={`/essays/${prevPost.slug}`} class="prev">
+        ← [{prevPost.title}]
+      </a>
+    )}
+    {nextPost && (
+      <a href={`/essays/${nextPost.slug}`} class="next">
+        [{nextPost.title}] →
+      </a>
+    )}
+  </nav>
+</BaseLayout>
+
+<style>
+.category-tag {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--ink-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-family: var(--font-serif);
+  font-size: var(--t-2xl);
+  color: var(--ink-bright);
+  line-height: var(--leading-tight);
+  margin-bottom: 0.75rem;
+}
+
+.epigraph {
+  border-left: 2px solid var(--ink-dim);
+  padding-left: 1.5rem;
+  font-style: italic;
+  color: var(--ink-bright);
+  margin-bottom: 2.5rem;
+}
+
+.epigraph cite {
+  display: block;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: var(--t-sm);
+  color: var(--ink-dim);
+  margin-top: 0.5rem;
+}
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  color: var(--ink-dim);
+  margin-top: 1rem;
+}
+
+.post-nav a {
+  color: var(--ink-dim);
+}
+
+.post-nav .next {
+  margin-left: auto;
+}
+</style>

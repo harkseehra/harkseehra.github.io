@@ -1,0 +1,147 @@
+@import "./tokens.css";
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: var(--t-base);
+  line-height: var(--leading);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  width: 100%;
+}
+
+/* ── Links ── */
+a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+a:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ── Prose ── */
+article p {
+  max-width: var(--measure);
+  hyphens: auto;
+  text-wrap: pretty;
+  margin-bottom: 1.5rem;
+}
+
+article h2 {
+  font-family: var(--font-mono);
+  font-size: var(--t-lg);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 3rem 0 1rem;
+}
+
+article h2::before {
+  content: "── ";
+  color: var(--ink-dim);
+}
+
+article h3 {
+  font-family: var(--font-serif);
+  font-size: var(--t-lg);
+  color: var(--ink-bright);
+  margin: 2rem 0 0.75rem;
+}
+
+article blockquote {
+  border-left: 2px solid var(--ink-dim);
+  padding-left: 1.5rem;
+  font-style: italic;
+  color: var(--ink-bright);
+  margin: 1.5rem 0;
+}
+
+article ul,
+article ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+article li {
+  margin-bottom: 0.4rem;
+}
+
+article hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 3rem 0;
+}
+
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem 0;
+  border: 1px solid var(--rule);
+}
+
+article code {
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  background: var(--paper-raised);
+  padding: 0.1em 0.35em;
+  color: var(--ink-bright);
+}
+
+article pre {
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+article pre code {
+  background: none;
+  padding: 0;
+}
+
+/* ── Emoji — hold to body size ── */
+.emoji {
+  font-style: normal;
+  font-size: 1em;
+  line-height: 1;
+}
+
+/* ── RTL language blocks ── */
+[dir="rtl"] {
+  text-align: right;
+}
+
+/* ── Utility ── */
+.mono {
+  font-family: var(--font-mono);
+}
+
+.dim {
+  color: var(--ink-dim);
+}

@@ -1,0 +1,63 @@
+---
+const nav = [
+  { href: '/essays', label: 'essays' },
+  { href: '/stories', label: 'stories' },
+  { href: '/quotes', label: 'quotes' },
+  { href: '/about', label: 'about' },
+];
+const current = Astro.url.pathname;
+---
+<header>
+  <a class="site-name" href="/">HARKHY · حركي</a>
+  <nav>
+    {nav.map(({ href, label }) => (
+      <a href={href} class:list={[{ active: current.startsWith(href) }]}>
+        [{label}]
+      </a>
+    ))}
+  </nav>
+</header>
+
+<style>
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-name {
+  font-family: var(--font-mono);
+  font-size: var(--t-base);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink-bright);
+  text-decoration: none;
+}
+
+.site-name:hover {
+  background: var(--ink-bright);
+  color: var(--paper);
+}
+
+nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+nav a {
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  color: var(--ink-dim);
+  letter-spacing: 0.04em;
+}
+
+nav a:hover,
+nav a.active {
+  background: var(--ink);
+  color: var(--paper);
+}
+</style>

@@ -1,0 +1,32 @@
+---
+interface Props {
+  lang: string;
+  inline?: boolean;
+}
+const { lang, inline = false } = Astro.props;
+const rtl = ['ar', 'fa', 'he', 'ur'].includes(lang);
+const fontClass = lang === 'pa' ? 'gurmukhi' : (rtl ? 'naskh' : '');
+const Tag = inline ? 'span' : 'div';
+---
+<Tag
+  lang={lang}
+  dir={rtl ? 'rtl' : 'ltr'}
+  class:list={['lang-block', fontClass, { inline }]}
+>
+  <slot />
+</Tag>
+
+<style>
+.lang-block {
+  display: block;
+}
+.lang-block.inline {
+  display: inline;
+}
+.lang-block.naskh {
+  font-family: var(--font-naskh);
+}
+.lang-block.gurmukhi {
+  font-family: var(--font-gurmukhi);
+}
+</style>

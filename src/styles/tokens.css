@@ -1,0 +1,32 @@
+:root {
+  /* Palette — scholar's terminal */
+  --ink:        #d4a855;
+  --ink-dim:    #9a7a3d;
+  --ink-bright: #f0c878;
+  --paper:      #0d0b08;
+  --paper-raised: #15110a;
+  --rule:       #3a2e1a;
+  --accent:     #c85a3a;
+
+  /* Type */
+  --font-serif: "Iowan Old Style", "Source Serif Pro", "Palatino Linotype",
+                Palatino, Georgia, serif;
+  --font-mono:  "Berkeley Mono", "IBM Plex Mono", "JetBrains Mono",
+                ui-monospace, Menlo, monospace;
+  --font-naskh: "Amiri", "Noto Naskh Arabic", "Scheherazade New", serif;
+  --font-gurmukhi: "Noto Serif Gurmukhi", serif;
+
+  /* Scale */
+  --measure: 34rem;
+  --leading: 1.7;
+  --leading-tight: 1.25;
+
+  /* Type sizes */
+  --t-xs:   0.75rem;
+  --t-sm:   0.875rem;
+  --t-base: 1.0625rem;
+  --t-lg:   1.25rem;
+  --t-xl:   1.625rem;
+  --t-2xl:  2.25rem;
+  --t-3xl:  3rem;
+}

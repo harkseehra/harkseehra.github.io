@@ -1,0 +1,26 @@
+---
+interface Props {
+  date: Date;
+  words: number;
+  category?: string;
+  index: number;
+}
+const { date, words, category, index } = Astro.props;
+const readingTime = Math.max(1, Math.round(words / 200));
+const dateStr = date.toISOString().split('T')[0].replace(/-/g, '.');
+const id = String(index).padStart(4, '0');
+---
+<p class="post-meta">
+  POST_ID: {id} · {dateStr} · {words.toLocaleString()} words · {readingTime} min read
+  {category && <span>· {category.toUpperCase()}</span>}
+</p>
+
+<style>
+.post-meta {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--ink-dim);
+  letter-spacing: 0.04em;
+  margin-bottom: 2.5rem;
+}
+</style>

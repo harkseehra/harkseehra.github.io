@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+
+const quotes = await getCollection('quotes');
+const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+---
+<footer>
+  {randomQuote && (
+    <p class="footer-quote">"{randomQuote.data.text}"</p>
+  )}
+  <p class="footer-copy">© Harkirat Seehra · All writing original unless cited</p>
+  <p class="footer-links">
+    <a href="/rss.xml">[RSS]</a>
+    <a href="/correspondence">[correspondence]</a>
+  </p>
+</footer>
+
+<style>
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--ink-dim);
+  font-size: var(--t-sm);
+  max-width: var(--measure);
+  margin: 0 auto;
+}
+
+.footer-copy,
+.footer-links {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--ink-dim);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.footer-links a {
+  color: var(--ink-dim);
+}
+
+.footer-links a:hover {
+  background: var(--ink-dim);
+  color: var(--paper);
+}
+</style>

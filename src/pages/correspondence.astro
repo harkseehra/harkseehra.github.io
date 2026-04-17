@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Divider from '../components/Divider.astro';
+---
+<BaseLayout title="Correspondence" description="Write to Harkhy.">
+  <article>
+    <p class="category-tag">CORRESPONDENCE</p>
+    <h1>Letters Are Welcome</h1>
+
+    <Divider />
+
+    <p>
+      If something here moved you, confused you, or made you want to argue — write to me.
+      I read everything. Reply may be slow; the writing comes first.
+    </p>
+
+    <p>
+      There is no comments section. This is intentional. A letter demands more of the writer
+      than a reaction does. If you have something to say, say it properly.
+    </p>
+
+    <p class="email-line">
+      <a href="mailto:newidlyi@gmail.com">[write a letter →]</a>
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+.category-tag {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--ink-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-family: var(--font-serif);
+  font-size: var(--t-2xl);
+  color: var(--ink-bright);
+  line-height: var(--leading-tight);
+  margin-bottom: 1rem;
+}
+
+article p {
+  margin-bottom: 1.25rem;
+  color: var(--ink);
+  max-width: var(--measure);
+}
+
+.email-line {
+  margin-top: 2rem;
+  font-family: var(--font-mono);
+}
+</style>

@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="About" description="About Harkirat Seehra — Harkhy · حركي.">
+  <article>
+    <p class="category-tag">ABOUT</p>
+    <h1>Who Am I?</h1>
+
+    <img
+      src="/images/essays-assets/%D8%AD%D8%B1%D9%83%D9%8A.png"
+      alt="Harkhy — حركي"
+      class="portrait"
+    />
+
+    <p>
+      My name is <strong>Harkhy · حركي</strong>. I write many things, on many topics. I write what I like.
+      I do not follow trends to make a bank in the writing space — writing is about making a mark, making
+      a point to elaborate what is in your mind.
+    </p>
+
+    <p>
+      Professionally, I describe my work as the art of behavioral psychology — because behaviours are the
+      outcome of habits. I write psychology of patterns and behaviours which make human beings act in certain
+      ways, influenced by their philosophies to live life.
+    </p>
+
+    <p>
+      The Truth is a spiritual guide for people who are spiritually connected with God regardless of any
+      religion. God is one, but every human being feels it differently — like the breath of Jesus, the song
+      of Solomon, the music of Mohammad, and the Truth of Guru Nanak.
+    </p>
+
+    <p>
+      I also write stories — parables, prophetic retellings, and original fiction. Multilingual, unfiltered,
+      original.
+    </p>
+
+    <p class="contact-line">
+      Letters are welcome at <a href="/correspondence">[correspondence]</a>.
+      Reply may be slow — the writing comes first.
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+.category-tag {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  color: var(--ink-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-family: var(--font-serif);
+  font-size: var(--t-2xl);
+  color: var(--ink-bright);
+  line-height: var(--leading-tight);
+  margin-bottom: 2rem;
+}
+
+.portrait {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  margin-bottom: 2rem;
+}
+
+article p {
+  margin-bottom: 1.25rem;
+  color: var(--ink);
+}
+
+.contact-line {
+  margin-top: 2rem;
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  color: var(--ink-dim);
+}
+</style>
