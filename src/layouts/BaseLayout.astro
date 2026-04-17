@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { title, description = 'Essays, stories, and philosophical writing by Harkirat Seehra.' } = Astro.props;
-const siteTitle = title === 'Harkhy' ? 'Harkhy · حركي' : `${title} · Harkhy`;
+const siteTitle = title === 'The Truth' ? 'THE TRUTH · حقیقت' : `${title} · The Truth`;
 ---
 <!doctype html>
 <html lang="en">
@@ -22,7 +22,7 @@ const siteTitle = title === 'Harkhy' ? 'Harkhy · حركي' : `${title} · Harkh
     <meta property="og:image" content="/og.png" />
     <title>{siteTitle}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" type="application/rss+xml" title="Harkhy" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="The Truth · حقیقت" href="/rss.xml" />
     <!-- Apply saved theme before paint to prevent flash -->
     <script is:inline>
       const t = localStorage.getItem('theme');
