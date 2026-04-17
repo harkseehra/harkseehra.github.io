@@ -29,7 +29,7 @@ const siteTitle = title === 'The Truth' ? 'THE TRUTH · حقیقت' : `${title} 
     <!-- Apply saved theme before paint to prevent flash -->
     <script is:inline>
       const t = localStorage.getItem('theme');
-      if (t === 'day' || t === 'moonlight') document.documentElement.setAttribute('data-theme', t);
+      if (t && t !== 'night') document.documentElement.setAttribute('data-theme', t);
     </script>
   </head>
   <body>

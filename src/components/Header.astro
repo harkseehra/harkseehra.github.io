@@ -29,7 +29,7 @@ const current = Astro.url.pathname;
   const btn = document.getElementById('theme-toggle');
   const icon = btn?.querySelector('.theme-icon');
 
-  const cycle: string[] = ['night', 'moonlight', 'day'];
+  const cycle: string[] = ['night', 'moonlight', 'day', 'sun'];
 
   const saved = localStorage.getItem('theme') ?? 'night';
   applyTheme(saved);
@@ -47,7 +47,7 @@ const current = Astro.url.pathname;
       if (icon) icon.textContent = '◑';
     } else {
       root.setAttribute('data-theme', theme);
-      if (icon) icon.textContent = theme === 'moonlight' ? '☽' : '○';
+      if (icon) icon.textContent = theme === 'moonlight' ? '☽' : theme === 'sun' ? '☀' : '○';
     }
   }
 </script>

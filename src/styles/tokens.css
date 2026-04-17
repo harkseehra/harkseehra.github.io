@@ -45,6 +45,17 @@
   --accent:     #c85a3a;
 }
 
+[data-theme="sun"] {
+  /* Palette — sun mode (March white sun / June night) */
+  --ink:        #1e2d45;
+  --ink-dim:    #5a6e88;
+  --ink-bright: #0d1824;
+  --paper:      #f7f6f3;
+  --paper-raised: #efecea;
+  --rule:       #d0cdc8;
+  --accent:     #b84030;
+}
+
 [data-theme="day"] {
   /* Palette — day mode (manuscript parchment) */
   --ink:        #5c3d0a;
