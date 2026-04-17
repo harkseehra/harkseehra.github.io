@@ -29,22 +29,25 @@ const current = Astro.url.pathname;
   const btn = document.getElementById('theme-toggle');
   const icon = btn?.querySelector('.theme-icon');
 
+  const cycle: string[] = ['night', 'moonlight', 'day'];
+
   const saved = localStorage.getItem('theme') ?? 'night';
   applyTheme(saved);
 
   btn?.addEventListener('click', () => {
-    const current = root.getAttribute('data-theme') === 'day' ? 'night' : 'day';
-    applyTheme(current);
-    localStorage.setItem('theme', current);
+    const current = root.getAttribute('data-theme') ?? 'night';
+    const next = cycle[(cycle.indexOf(current) + 1) % cycle.length];
+    applyTheme(next);
+    localStorage.setItem('theme', next);
   });
 
   function applyTheme(theme: string) {
-    if (theme === 'day') {
-      root.setAttribute('data-theme', 'day');
-      if (icon) icon.textContent = '○';
-    } else {
+    if (theme === 'night') {
       root.removeAttribute('data-theme');
       if (icon) icon.textContent = '◑';
+    } else {
+      root.setAttribute('data-theme', theme);
+      if (icon) icon.textContent = theme === 'moonlight' ? '☽' : '○';
     }
   }
 </script>

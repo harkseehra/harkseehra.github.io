@@ -1,5 +1,5 @@
 ---
-title: "Noah’s flood"
+title: "Noah's flood"
 titleNative: "حکایت نوح"
 date: "2024-07-19"
 status: "complete"
@@ -19,9 +19,9 @@ But people were granted upon Noah and other messengers like him, by writings - b
 
 Noah - **نوح**  told stories of people who disobeyed and faced harsh punishments, people took his **حدیث** - advice as joke.
 
-Noah prayed to god and told “ everyday the people will become believers under my supervision, I will be the messenger of god to them “ - That was Noah’s prayer to god.
+Noah prayed to god and told " everyday the people will become believers under my supervision, I will be the messenger of god to them " - That was Noah's prayer to god.
 
-But even with God’s favour, humans denied their source of creation. Instead of God, they started worshipping idols and energies for their own greed and gluttony.
+But even with God's favour, humans denied their source of creation. Instead of God, they started worshipping idols and energies for their own greed and gluttony.
 
 Devil was their seller. To assert dominance of **خدا** -  God - God had to take a harsh step, but because of faithfulness and justice God informed the believers like Noah about what was about to happen to corrupt people.
 
@@ -31,11 +31,7 @@ God told Noah that I only allow you to save some of best people of each kind, so
 
 The levels of junk body can endure are numerous- from extraction, from disease our body releases the bad toxins out.
 
-![PXL_20250721_183621227.jpg](/images/stories-assets/PXL_20250721_183621227.jpg)
-
 > ## It is only made clearer that death brings new life. 
-
-
 
 ---
 
@@ -49,15 +45,15 @@ It is very sad face of reality that some people give away and die and some peopl
 
 Because to avoid death, devil sells the lies, what if the sneaky gets caught? Is it end of their life? Some people understand the call of god and become believers.
 
-To this 7 seven minutes of heaven and hell - many regrets hold us accountable for our bad decisions like each tooth is one memory of smile, it’s only beautiful if human beings smile freely without any guilt. 
+To this 7 seven minutes of heaven and hell - many regrets hold us accountable for our bad decisions like each tooth is one memory of smile, it's only beautiful if human beings smile freely without any guilt. 
 
 After this heaven and hell - the void happens, the great reset, soul goes back to zero.
 
-It will feel like reality has been reset to live up this dream again, the thing is your consciousness will be different than before but you will see everything - don’t worry. New life - new life decisions- oh intoxicating.
+It will feel like reality has been reset to live up this dream again, the thing is your consciousness will be different than before but you will see everything - don't worry. New life - new life decisions- oh intoxicating.
 
 Therefore since beginning the call from God is there, but very few individuals are there who can stay focused on the mysteries of god.
 
-Therefore for that God’s torment - necessity, many died but still got second chance to live up this dream again but - the freewill to listen to **خدا** - God or **شیطان** - Satan. 
+Therefore for that God's torment - necessity, many died but still got second chance to live up this dream again but - the freewill to listen to **خدا** - God or **شیطان** - Satan. 
 
 But magical - **نوح** always been a prophet, everyone experiences his struggle in life. 
 
@@ -67,20 +63,15 @@ But magical - **نوح** always been a prophet, everyone experiences his struggl
 
 To be able to let 90% of mankind was a tough decision for Noah to make, his last breath until the time of preparation- he warned people. But people just laughed and due to devil, the magical clay was turned into bones. 
 
-It is not like God never warned, many of people had broken bones of deceits. To die before death is what God demands. To not use freewill for devil’s causes.
-
-![PXL_20250721_183628487.jpg](/images/stories-assets/PXL_20250721_183628487.jpg)
-
-
-
+It is not like God never warned, many of people had broken bones of deceits. To die before death is what God demands. To not use freewill for devil's causes.
 
 ---
 
 So God had to drown them and kill them. For 150 days, God drowned the earth, from the warnings of **باد** - wind to make it water, God taken the light source - **خورشید** - Sun. Clouds started to rain and filled earth with deep water - everyone drown got killed.
 
-Every pain has a good cause to exist. (Often times we ignore these problems), fr/om air to turn into water, to face god’s **جبر** punishments by Noah’s flood.
+Every pain has a good cause to exist. (Often times we ignore these problems), fr/om air to turn into water, to face god's **جبر** punishments by Noah's flood.
 
-Noah’s Ark accommodated most of repressed, people following God’s **ادب** - ਅਦਬ and rest were sacrificed. 
+Noah's Ark accommodated most of repressed, people following God's **ادب** - ਅਦਬ and rest were sacrificed. 
 
 After approximately 5 months, Noah sent 3 birds of our existence - 
 
@@ -90,8 +81,6 @@ After approximately 5 months, Noah sent 3 birds of our existence -
 
 Crow got demotivated and between dead bodies became as them, he got killed because he thought what he sees is the actual reality and gave up. Sadly he drowned
 
-Dove went and recognised dirt from beyond and chose not to explore further staying in safe parameter of Noah’s Ark like a person in safe net of God praying daily.
+Dove went and recognised dirt from beyond and chose not to explore further staying in safe parameter of Noah's Ark like a person in safe net of God praying daily.
 
 Another Dove was a rarest of rare, Noah sent with confidence to go bring a good news, when Dove seen the ground to be more beautiful and green - **سبز**, more like equal as the heaven, for the success of new creation - Dove brought a charm of good luck a green Olive leaf.
-
-![PXL_20250721_183634816.jpg](/images/stories-assets/PXL_20250721_183634816.jpg)

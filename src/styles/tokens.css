@@ -34,6 +34,17 @@
   --t-3xl:  3rem;
 }
 
+[data-theme="moonlight"] {
+  /* Palette — moonlight mode (warm silver on dark) */
+  --ink:        #c8c2b8;
+  --ink-dim:    #807870;
+  --ink-bright: #e8e4dc;
+  --paper:      #0d0b08;
+  --paper-raised: #15110a;
+  --rule:       #2e2a24;
+  --accent:     #c85a3a;
+}
+
 [data-theme="day"] {
   /* Palette — day mode (manuscript parchment) */
   --ink:        #5c3d0a;

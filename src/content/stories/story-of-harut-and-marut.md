@@ -7,8 +7,6 @@ tradition: "prophetic"
 draft: false
 ---
 
-![1000012265.jpg](/images/stories-assets/1000012265.jpg)
-
 During the time of Prophet Solomon, the people of Babylon started to disbelieve, instead of living in reality, they wanted fantasy. They started testing their pure touchstone of soul and caused chaos in the kingdom of Babylon. 
 
 So they were mending their teeth and tongues to speak lies. Therefore to ask what really people wanted whether it's hell or heaven, God sent two angels as the test for the faith of humanity, basically to make a point if we erase the female from male and male from female, what remains there is a soul. 
@@ -18,10 +16,6 @@ But lust - **شهوت** came over the people to gain more than provisioned - pro
 The night of devil was wild, phantasy like ecstasy, but as soon as day sets and sun of god comes to rise, these disobedient people like bats wanted to hide. 
 
 ---
-
-
-
-![1000012266.jpg](/images/stories-assets/1000012266.jpg)
 
 So Solomon received these two angels, one was as handsome as Joseph and pure looking, one was as beautiful and glorious like a pure virgin Mary, but they were angels after all.
 
@@ -35,11 +29,7 @@ Such spells were as unique like rolled **ر** (R) of **فارسی** (Persian) - 
 
 These spells caused believers and good people confusion and error. But in reality, people who learned that magic was in confusion and error. While upon casting temporary chaos to the believers, their own fire was kindling and increasing day by day, the fire of hell.
 
-
-
 ---
-
-![1000012267.jpg](/images/stories-assets/1000012267.jpg)
 
 While the believers after injury recovered strongly, the people of magic endured long term diseases and painful tormented death.
 
@@ -57,10 +47,6 @@ God is working in mysterious ways, the repressed yet believing people understood
 
 ---
 
-
-
-![1000012268.jpg](/images/stories-assets/1000012268.jpg)
-
 But the cholesterol is warning like Prophet Solomon to people. But people for the sake of lust and gluttony did not listen as they sold their ears to the devil. 
 
 The disbelievers after practicing magic started considering themselves as god, they never knew that one finger is merely fighting with another finger, while for body both these fingers have equal significance in function of body. 
@@ -73,10 +59,6 @@ The poet would say there is no difference but many similarities, but only thing 
 
 ---
 
-
-
-![1000012269.jpg](/images/stories-assets/1000012269.jpg)
-
 "O whom you write, is always you are the one reads first." As Adam disbelieved choosing freewill with his Eve. One Adam and Eve became into billions of billions. The Poet says - there is only god, later comes the love, then me and you, then people.
 
 The people of magic turned players got stuck in the game and the lion of death **شیر مرگ** like time devoured them more like going to Jungle by themselves for the people of magic.
@@ -88,10 +70,6 @@ The Thought of idealism is unoriginal, it turns one to idol worship - we never k
 The thought of love is original, therefore there could be millions of love stories. How two people on their own journey meet unexpectedly and fall in love and devote themselves in the pure energy. They love each other uniquely, purely and dedicate themselves. They manifest and produce an offspring, that's how continuation is made.
 
 ---
-
-
-
-![1000012270.jpg](/images/stories-assets/1000012270.jpg)
 
 Whilst the people of reality, believers lived simple, sober and clean - **صاف** . They believed in God and understood their provisions.
 
@@ -108,10 +86,6 @@ The people of magic became divided in men and women perceiving each side with eg
 A self has to stand for self, or a human being dies. The men practicing magic started killing the women inside, the women thus was killing the men. For the power of magic, the superiority and ego they were killing each other, but in reality they were killing themselves. Magic had put veils on their eyes. 
 
 ---
-
-![1000012271.jpg](/images/stories-assets/1000012271.jpg)
-
-
 
 While the intoxicated eyes are seeing the world from the lens of intoxication. The lens of sobriety is different as reality from the phantasy. The reality is boring and simple yet full of surprises. The lens of intoxication is wild and fantastic yet predictable.
 

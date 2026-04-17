@@ -7,8 +7,6 @@ tradition: "prophetic"
 draft: false
 ---
 
-![1753558512639.jpg](/images/stories-assets/1753558512639.jpg)
-
 The Hebrews (**بني اسرائيل**) were simple people being traders. They used to trade essentials, they believed in the law of possibility that if you can work hard - the reward shall be there.
 
 Unfortunately After the death of prophet Joseph (**يوسف**), Pharoah at that time - the king of Egypt - looked at their hard work and skills - decided to imprison them and force them into harsh labour. These Hebrew traders were not only skilled and hard working. But one thing that was hereditary was the ability to adapt, to mold their clay as the situation arises.
@@ -25,10 +23,6 @@ The reason was the harshness on believing Hebrews with their clothes torn and br
 
 ---
 
-![1753558516910.jpg](/images/stories-assets/1753558516910.jpg)
-
-
-
 The gods of paganism were as complex as the black magic. With the help of magic, people of Pharoah started eating of gluttony and became busy in shape sculpting. 
 
 Because "One which looks is one which sells", people go over aesthetics over functionality. These were Egyptians beliefs at that time therefore they were deceitful and treating Hebrews in worst manner possible as they deemed Hebrews non superior.
@@ -41,11 +35,7 @@ While Moses was growing up in royal household not knowing his mother and people 
 
 Instead of worshiping God, Pharoah was talking with various demigods to make him God to reign over people. He deemed himself superior and judging people under hierarchy based on various factors of his own Godly parameters. Therefore God, the almighty has to show his might, make it manifest that he remains as the only one. So Prophet Moses (**موسی**) was God's amazing written plan to stop Pharoah's attributes amongst Egyptians - the idol makers.
 
-
-
 ---
-
-![1753558521030.jpg](/images/stories-assets/1753558521030.jpg)
 
 When the corruptness reaches new heights, God has to bring an order therefore the prayers of believers and mercy can still save and purify rotten people. Prophet Moses reminisced his origin by Godly grace one evening, when he saw harsh behaviour of Egyptian guard on a Hebrew slave and killed the guard.
 
@@ -63,8 +53,6 @@ The intelligence and reason of Moses were as complimenting as Zipphora's cunning
 
 ---
 
-![1753558527412.jpg](/images/stories-assets/1753558527412.jpg)
-
 Suddenly the dreams started turned into reality. To accept, call, believe and prayer was Moses way on the journey to God, leave the freewill to the destiny, because "God shall be our saviour", For which God started revealing to Moses. 
 
 God called Moses to mountain Tur - **کوه طور** to reveal him his prophet-hood duties that after 150-200 years of imprisonment of Hebrews, Moses now shall get responsibility to set them straight into the right direction.
@@ -75,11 +63,7 @@ The Pharoah's activities were reigned by magic, control and deceit. While the go
 
 But every time after punishment from God, Pharoah's heart turned as soft as candle wax to God's fire. But every time as he tried to act good, the devil in charge used to trap him in his superiority and ego. The man who do not listen to god is destined to destruction and death. The person who cannot speak has better chances than one who cannot listen. 
 
-
-
 ---
-
-![1753558531548.jpg](/images/stories-assets/1753558531548.jpg)
 
 The ego of  Pharoah ate Pharoah's ears. The counsel of Moses threatened the ego of Pharoah and superior idol Pharoah made of himself. The stone hearted Pharoah was unable to untangle and enjoy his life. 
 
@@ -96,8 +80,6 @@ But people were cunning still rotten to the core, because Egyptians harsh treatm
 So as Prophet Moses went to mountain to get a revelation from God, the people were furious at Prophet Moses absence and out of pity displaying their real behaviour of materialism, started worshipping the Golden calf.
 
 ---
-
-![1753558535707.jpg](/images/stories-assets/1753558535707.jpg)
 
 While worshipping an idol, they lost their eyes to the shinning skin of the Golden calf. It was worst sight for Prophet Moses to see. But God did not allow Moses to interfere for while because God had justice in mind and his reveal his power again. While they were worshipping - Hebrews the idol of a calf - the tribulation started increasing day by day until the day they asked to repent.
 
