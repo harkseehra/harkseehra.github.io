@@ -206,6 +206,12 @@ article pre code {
   text-align: right;
 }
 
+.farsi {
+  color: var(--royal-blue);
+  font-family: var(--font-naskh);
+  font-style: normal;
+}
+
 /* ── Utility ── */
 .mono {
   font-family: var(--font-mono);

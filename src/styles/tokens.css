@@ -7,6 +7,8 @@
   --paper-raised: #15110a;
   --rule:       #3a2e1a;
   --accent:     #c85a3a;
+  --royal-red:  #8B1A1A;
+  --royal-blue: #7BAAF7;
 
   /* Transition for theme switching */
   --theme-transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
@@ -43,6 +45,7 @@
   --paper-raised: #15110a;
   --rule:       #2e2a24;
   --accent:     #c85a3a;
+  --royal-blue: #7BAAF7;
 }
 
 [data-theme="sun"] {
@@ -54,6 +57,7 @@
   --paper-raised: #efecea;
   --rule:       #d0cdc8;
   --accent:     #b84030;
+  --royal-blue: #1A4EA6;
 }
 
 [data-theme="day"] {
@@ -65,4 +69,5 @@
   --paper-raised: #ede0c4;
   --rule:       #c8b48a;
   --accent:     #c85a3a;
+  --royal-blue: #1A4EA6;
 }

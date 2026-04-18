@@ -5,12 +5,13 @@ import sitemap from '@astrojs/sitemap';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkSmartypants from 'remark-smartypants';
+import { rehypeFarsi } from './src/lib/rehype-farsi.mjs';
 
 export default defineConfig({
   site: 'https://harkseehra.github.io',
   integrations: [mdx(), sitemap()],
   markdown: {
-    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings, rehypeFarsi],
     remarkPlugins: [remarkSmartypants],
   },
 });
