@@ -8,7 +8,7 @@ const current = Astro.url.pathname;
 ---
 <header>
   <a class="site-name" href="/">
-    THE TRUTH · <span class="site-persian">حقیقت</span><span class="cursor" aria-hidden="true">▌</span>
+    THE TRUTH · حقیقت<span class="cursor" aria-hidden="true">▌</span>
   </a>
   <div class="header-right">
     <nav>
@@ -97,19 +97,15 @@ header {
   font-size: var(--t-base);
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: var(--ink-bright);
+  color: var(--royal-red);
   text-decoration: none;
   background-image: none;
 }
 
 .site-name:hover {
   background-image: none;
-  background: var(--ink-bright);
+  background: var(--royal-red);
   color: var(--paper);
-}
-
-.site-persian {
-  color: var(--royal-red);
 }
 
 .cursor {

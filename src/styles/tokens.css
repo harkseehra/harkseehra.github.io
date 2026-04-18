@@ -7,7 +7,7 @@
   --paper-raised: #15110a;
   --rule:       #3a2e1a;
   --accent:     #c85a3a;
-  --royal-red:  #8B1A1A;
+  --royal-red:  #C94040;
   --royal-blue: #7BAAF7;
 
   /* Transition for theme switching */
@@ -18,7 +18,7 @@
                 Palatino, Georgia, serif;
   --font-mono:  "Berkeley Mono", "IBM Plex Mono", "JetBrains Mono",
                 ui-monospace, Menlo, monospace;
-  --font-naskh: "Amiri", "Noto Naskh Arabic", "Scheherazade New", serif;
+  --font-naskh: "Markazi Text", "Amiri", "Noto Naskh Arabic", "Scheherazade New", serif;
   --font-gurmukhi: "Noto Serif Gurmukhi", serif;
 
   /* Scale */
@@ -45,6 +45,7 @@
   --paper-raised: #15110a;
   --rule:       #2e2a24;
   --accent:     #c85a3a;
+  --royal-red:  #C94040;
   --royal-blue: #7BAAF7;
 }
 
@@ -57,6 +58,7 @@
   --paper-raised: #efecea;
   --rule:       #d0cdc8;
   --accent:     #b84030;
+  --royal-red:  #8B1A1A;
   --royal-blue: #1A4EA6;
 }
 
@@ -69,5 +71,6 @@
   --paper-raised: #ede0c4;
   --rule:       #c8b48a;
   --accent:     #c85a3a;
+  --royal-red:  #8B1A1A;
   --royal-blue: #1A4EA6;
 }
