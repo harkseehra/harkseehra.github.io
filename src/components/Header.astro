@@ -21,6 +21,7 @@ const current = Astro.url.pathname;
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle day/night mode" title="Toggle day/night">
       <span class="theme-icon">◑</span>
     </button>
+    <button class="coffee-toggle" id="coffee-toggle" aria-label="Toggle coffee mode" title="Coffee mode">☕</button>
   </div>
 </header>
 
@@ -28,27 +29,41 @@ const current = Astro.url.pathname;
   const root = document.documentElement;
   const btn = document.getElementById('theme-toggle');
   const icon = btn?.querySelector('.theme-icon');
+  const coffeeBtn = document.getElementById('coffee-toggle');
 
-  const cycle: string[] = ['night', 'moonlight', 'day', 'sun'];
+  const coffeeThemes = ['night', 'day'];
+
+  function isCoffeeMode(theme: string): boolean {
+    return coffeeThemes.includes(theme);
+  }
 
   const saved = localStorage.getItem('theme') ?? 'night';
   applyTheme(saved);
 
   btn?.addEventListener('click', () => {
     const current = root.getAttribute('data-theme') ?? 'night';
-    const next = cycle[(cycle.indexOf(current) + 1) % cycle.length];
-    applyTheme(next);
-    localStorage.setItem('theme', next);
+    if (isCoffeeMode(current)) {
+      applyTheme(current === 'night' ? 'day' : 'night');
+    } else {
+      applyTheme(current === 'moonlight' ? 'sun' : 'moonlight');
+    }
+  });
+
+  coffeeBtn?.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') ?? 'night';
+    applyTheme(isCoffeeMode(current) ? 'moonlight' : 'night');
   });
 
   function applyTheme(theme: string) {
+    localStorage.setItem('theme', theme);
     if (theme === 'night') {
       root.removeAttribute('data-theme');
-      if (icon) icon.textContent = '◑';
     } else {
       root.setAttribute('data-theme', theme);
-      if (icon) icon.textContent = theme === 'moonlight' ? '☽' : theme === 'sun' ? '☀' : '○';
     }
+    const icons: Record<string, string> = { night: '◑', moonlight: '☽', sun: '☀', day: '○' };
+    if (icon) icon.textContent = icons[theme] ?? '◑';
+    coffeeBtn?.classList.toggle('active', isCoffeeMode(theme));
   }
 </script>
 
@@ -124,6 +139,25 @@ nav a.active {
 }
 
 .theme-toggle:hover {
+  border-color: var(--ink);
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.coffee-toggle {
+  font-family: var(--font-mono);
+  font-size: var(--t-base);
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--ink-dim);
+  cursor: pointer;
+  padding: 0.15rem 0.5rem;
+  line-height: 1;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.coffee-toggle.active,
+.coffee-toggle:hover {
   border-color: var(--ink);
   color: var(--paper);
   background: var(--ink);
