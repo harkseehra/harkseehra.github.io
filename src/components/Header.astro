@@ -21,7 +21,7 @@ const current = Astro.url.pathname;
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle day/night mode" title="Toggle day/night">
       <span class="theme-icon">◑</span>
     </button>
-    <button class="coffee-toggle" id="coffee-toggle" aria-label="Toggle coffee mode" title="Coffee mode">☕</button>
+    <button class="coffee-toggle" id="coffee-toggle" aria-label="Toggle coffee mode" title="Coffee mode">◎</button>
   </div>
 </header>
 
@@ -51,7 +51,12 @@ const current = Astro.url.pathname;
 
   coffeeBtn?.addEventListener('click', () => {
     const current = root.getAttribute('data-theme') ?? 'night';
-    applyTheme(isCoffeeMode(current) ? 'moonlight' : 'night');
+    const isLight = current === 'sun' || current === 'day';
+    if (isCoffeeMode(current)) {
+      applyTheme(isLight ? 'sun' : 'moonlight');
+    } else {
+      applyTheme(isLight ? 'day' : 'night');
+    }
   });
 
   function applyTheme(theme: string) {
