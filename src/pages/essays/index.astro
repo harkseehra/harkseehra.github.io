@@ -22,8 +22,8 @@ const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
       <p class="year-header">{year}</p>
       <table>
         <tbody>
-          {byYear[year].map(e => (
-            <tr>
+          {byYear[year].map((e, i) => (
+            <tr style={`--row-i: ${i}`}>
               <td class="col-date">{e.data.date.toISOString().slice(0, 10)}</td>
               <td class="col-title">
                 <a href={`/essays/${e.id}`}>{e.data.title}</a>
@@ -68,6 +68,12 @@ table {
 
 tr {
   border-bottom: 1px solid var(--rule);
+}
+
+tbody tr {
+  opacity: 0;
+  animation: row-in 0.3s ease forwards;
+  animation-delay: calc(var(--row-i, 0) * 35ms + 100ms);
 }
 
 td {
