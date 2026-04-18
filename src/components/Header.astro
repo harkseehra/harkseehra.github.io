@@ -1,6 +1,6 @@
 ---
 const nav = [
-  { href: '/essays', label: 'essays' },
+  { href: '/essays', label: 'articles' },
   { href: '/stories', label: 'stories' },
   { href: '/about', label: 'about' },
 ];
@@ -21,7 +21,15 @@ const current = Astro.url.pathname;
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle day/night mode" title="Toggle day/night">
       <span class="theme-icon">◑</span>
     </button>
-    <button class="coffee-toggle" id="coffee-toggle" aria-label="Toggle coffee mode" title="Coffee mode">◎</button>
+    <button class="coffee-toggle" id="coffee-toggle" aria-label="Toggle coffee mode" title="Coffee mode">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
+        <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+        <line x1="6" y1="2" x2="6" y2="4"/>
+        <line x1="10" y1="2" x2="10" y2="4"/>
+        <line x1="14" y1="2" x2="14" y2="4"/>
+      </svg>
+    </button>
   </div>
 </header>
 
@@ -150,14 +158,14 @@ nav a.active {
 }
 
 .coffee-toggle {
-  font-family: var(--font-mono);
-  font-size: var(--t-base);
   background: none;
   border: 1px solid var(--rule);
   color: var(--ink-dim);
   cursor: pointer;
-  padding: 0.15rem 0.5rem;
-  line-height: 1;
+  padding: 0.25rem 0.45rem;
+  line-height: 0;
+  display: inline-flex;
+  align-items: center;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
 

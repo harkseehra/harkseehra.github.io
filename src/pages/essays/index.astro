@@ -14,8 +14,8 @@ const byYear = essays.reduce((acc, e) => {
 
 const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
 ---
-<BaseLayout title="Essays" description="All essays by Harkirat Seehra.">
-  <h1 class="page-title">ESSAYS</h1>
+<BaseLayout title="Articles" description="All articles by Harkirat Seehra.">
+  <h1 class="page-title">ARTICLES</h1>
 
   {years.map(year => (
     <section class="year-group">
