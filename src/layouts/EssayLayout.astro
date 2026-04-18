@@ -94,10 +94,14 @@ h1 {
 
 .post-nav a {
   color: var(--ink-dim);
+  background-image: none;
+  padding: 0.1em 0.3em;
+  margin: 0 -0.3em;
+  transition: background-color 0.12s ease, color 0.12s ease;
 }
 
 .post-nav a:hover {
-  background-size: 100% 100%;
+  background-color: var(--ink);
   color: var(--paper);
 }
 
