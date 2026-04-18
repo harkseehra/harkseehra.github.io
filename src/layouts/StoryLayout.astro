@@ -20,7 +20,7 @@ interface Props {
 const { title, titleNative, date, tradition, wordCount, index, status, inspiredBy, description, prevPost, nextPost } = Astro.props;
 ---
 <BaseLayout title={title} description={description}>
-  <article>
+  <article class="story-body">
     {tradition && <p class="category-tag">{tradition.toUpperCase()}</p>}
     <h1>{title}</h1>
     {titleNative && <p class="title-native">{titleNative}</p>}
@@ -48,6 +48,10 @@ const { title, titleNative, date, tradition, wordCount, index, status, inspiredB
 </BaseLayout>
 
 <style>
+.story-body :global(p) {
+  font-weight: 450;
+}
+
 .category-tag {
   font-family: var(--font-mono);
   font-size: var(--t-xs);
