@@ -39,6 +39,29 @@
   to   { opacity: 1; transform: none; }
 }
 
+@keyframes grain-shift {
+  0%   { transform: translate(0%,   0%);  }
+  10%  { transform: translate(-3%,  2%);  }
+  20%  { transform: translate(2%,  -4%);  }
+  30%  { transform: translate(-4%,  1%);  }
+  40%  { transform: translate(3%,   4%);  }
+  50%  { transform: translate(-2%, -3%);  }
+  60%  { transform: translate(4%,  -2%);  }
+  70%  { transform: translate(-1%,  4%);  }
+  80%  { transform: translate(3%,  -3%);  }
+  90%  { transform: translate(-4%,  2%);  }
+  100% { transform: translate(0%,   0%);  }
+}
+
+@keyframes projector-on {
+  0%   { opacity: 0;   filter: brightness(0)   blur(8px); }
+  8%   { opacity: 1;   filter: brightness(4)   blur(4px); }
+  15%  { opacity: 0.3; filter: brightness(0.2) blur(2px); }
+  25%  { opacity: 1;   filter: brightness(2)   blur(1px); }
+  40%  { opacity: 1;   filter: brightness(1.1) blur(0px); }
+  100% { opacity: 1;   filter: brightness(1)   blur(0px); }
+}
+
 h1 {
   animation: type-reveal 0.7s ease both;
 }
@@ -58,19 +81,23 @@ h1 {
 }
 
 html {
-  background: var(--paper);
+  background: #000;
   color: var(--ink);
   font-family: var(--font-serif);
   font-size: var(--t-base);
   line-height: var(--leading);
   -webkit-font-smoothing: antialiased;
+  filter: sepia(0.10) saturate(1.05) hue-rotate(-5deg);
   transition: var(--theme-transition);
 }
 
 body {
+  background: var(--paper);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
   animation: fade-in 0.35s ease both;
   transition: var(--theme-transition);
 }
@@ -182,6 +209,51 @@ article pre code {
   padding: 0;
 }
 
+/* ── Cinema: film grain ── */
+body::before {
+  content: '';
+  position: fixed;
+  top: -30%; left: -30%;
+  width: 160%; height: 160%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.055;
+  will-change: transform;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+  animation: grain-shift 1s steps(10) infinite;
+}
+
+/* ── Cinema: lens vignette ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 10px;
+  background:
+    radial-gradient(ellipse 75% 60% at 50% 46%,
+      rgba(255, 210, 130, 0.07) 0%,
+      transparent 65%),
+    radial-gradient(ellipse at 50% 46%,
+      transparent 38%,
+      rgba(0, 0, 0, 0.22) 100%);
+}
+
+/* ── Cinema: halation (dark themes only) ── */
+:root:not([data-theme]) article p,
+[data-theme="moonlight"] article p {
+  text-shadow:
+    0 0 18px rgba(235, 190, 95, 0.20),
+    0 0 48px rgba(215, 155, 65, 0.09);
+}
+
+/* ── Cinema: projector warm-up ── */
+body.projector-warmup {
+  animation: projector-on 0.80s ease both;
+}
+
 /* ── Mobile type scale ── */
 @media (max-width: 680px) {
   :root {
@@ -191,6 +263,10 @@ article pre code {
 
   main {
     padding: 2.5rem 1.25rem;
+  }
+
+  body {
+    border-radius: 0;
   }
 }
 

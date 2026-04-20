@@ -38,5 +38,14 @@ const siteTitle = title === 'The Truth' ? 'THE TRUTH · حقیقت' : `${title} 
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+      if (!sessionStorage.getItem('visited')) {
+        sessionStorage.setItem('visited', '1');
+        document.body.classList.add('projector-warmup');
+        document.body.addEventListener('animationend', () => {
+          document.body.classList.remove('projector-warmup');
+        }, { once: true });
+      }
+    </script>
   </body>
 </html>

@@ -7,7 +7,7 @@
   --paper-raised: #15110a;
   --rule:       #3a2e1a;
   --accent:     #c85a3a;
-  --royal-red:  #C94040;
+  --royal-red:  #D04848;
   --royal-blue: #7BAAF7;
 
   /* Transition for theme switching */
@@ -22,7 +22,7 @@
   --font-gurmukhi: "Noto Serif Gurmukhi", serif;
 
   /* Scale */
-  --measure: 42rem;
+  --measure: 40rem;
   --leading: 1.75;
   --leading-tight: 1.25;
 
@@ -45,7 +45,7 @@
   --paper-raised: #15110a;
   --rule:       #2e2a24;
   --accent:     #c85a3a;
-  --royal-red:  #C94040;
+  --royal-red:  #D04848;
   --royal-blue: #7BAAF7;
 }
 
