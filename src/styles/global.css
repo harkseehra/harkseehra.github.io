@@ -87,7 +87,6 @@ html {
   font-size: var(--t-base);
   line-height: var(--leading);
   -webkit-font-smoothing: antialiased;
-  filter: sepia(0.10) saturate(1.05) hue-rotate(-5deg);
   transition: var(--theme-transition);
 }
 
