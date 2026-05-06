@@ -1,13 +1,13 @@
 :root {
-  /* Palette — night mode (default) */
-  --ink:        #d4a855;
-  --ink-dim:    #9a7a3d;
-  --ink-bright: #f0c878;
-  --paper:      #0d0b08;
-  --paper-raised: #15110a;
-  --rule:       #3a2e1a;
+  /* Night mode — macOS-style pure dark */
+  --ink:        #F0F0F0;
+  --ink-dim:    #8E8E93;
+  --ink-bright: #FFFFFF;
+  --paper:      #000000;
+  --paper-raised: #1C1C1E;
+  --rule:       #2C2C2E;
   --accent:     #c85a3a;
-  --royal-red:  #D04848;
+  --royal-red:  #E05555;
   --royal-blue: #7BAAF7;
 
   /* Transition for theme switching */
@@ -26,18 +26,18 @@
   --leading: 1.75;
   --leading-tight: 1.25;
 
-  /* Type sizes */
-  --t-xs:   0.75rem;
-  --t-sm:   0.875rem;
-  --t-base: 1.125rem;
-  --t-lg:   1.25rem;
-  --t-xl:   1.625rem;
-  --t-2xl:  2.25rem;
-  --t-3xl:  3rem;
+  /* Type sizes — scaled +20% from original */
+  --t-xs:   0.9rem;
+  --t-sm:   1.05rem;
+  --t-base: 1.35rem;
+  --t-lg:   1.5rem;
+  --t-xl:   1.95rem;
+  --t-2xl:  2.7rem;
+  --t-3xl:  3.6rem;
 }
 
 [data-theme="moonlight"] {
-  /* Palette — moonlight mode (warm silver on dark) */
+  /* Moonlight — warm silver on dark */
   --ink:        #c8c2b8;
   --ink-dim:    #807870;
   --ink-bright: #e8e4dc;
@@ -45,25 +45,25 @@
   --paper-raised: #15110a;
   --rule:       #2e2a24;
   --accent:     #c85a3a;
-  --royal-red:  #D04848;
+  --royal-red:  #E05555;
   --royal-blue: #7BAAF7;
 }
 
 [data-theme="sun"] {
-  /* Palette — sun mode (March white sun / June night) */
-  --ink:        #1e2d45;
-  --ink-dim:    #5a6e88;
-  --ink-bright: #0d1824;
-  --paper:      #f7f6f3;
-  --paper-raised: #efecea;
-  --rule:       #d0cdc8;
-  --accent:     #b84030;
-  --royal-red:  #8B1A1A;
+  /* Sun — pure white, plain, high contrast */
+  --ink:        #111111;
+  --ink-dim:    #555555;
+  --ink-bright: #000000;
+  --paper:      #FFFFFF;
+  --paper-raised: #F5F5F5;
+  --rule:       #E0E0E0;
+  --accent:     #8B0000;
+  --royal-red:  #8B0000;
   --royal-blue: #1A4EA6;
 }
 
 [data-theme="day"] {
-  /* Palette — day mode (manuscript parchment) */
+  /* Day — manuscript parchment (coffee mode) */
   --ink:        #5c3d0a;
   --ink-dim:    #8a6030;
   --ink-bright: #2a1505;
@@ -71,6 +71,6 @@
   --paper-raised: #ede0c4;
   --rule:       #c8b48a;
   --accent:     #c85a3a;
-  --royal-red:  #8B1A1A;
+  --royal-red:  #8B0000;
   --royal-blue: #1A4EA6;
 }

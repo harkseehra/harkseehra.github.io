@@ -45,27 +45,11 @@ const current = Astro.url.pathname;
     return coffeeThemes.includes(theme);
   }
 
-  const saved = localStorage.getItem('theme') ?? 'night';
-  applyTheme(saved);
-
-  btn?.addEventListener('click', () => {
-    const current = root.getAttribute('data-theme') ?? 'night';
-    if (isCoffeeMode(current)) {
-      applyTheme(current === 'night' ? 'day' : 'night');
-    } else {
-      applyTheme(current === 'moonlight' ? 'sun' : 'moonlight');
-    }
-  });
-
-  coffeeBtn?.addEventListener('click', () => {
-    const current = root.getAttribute('data-theme') ?? 'night';
-    const isLight = current === 'sun' || current === 'day';
-    if (isCoffeeMode(current)) {
-      applyTheme(isLight ? 'sun' : 'moonlight');
-    } else {
-      applyTheme(isLight ? 'day' : 'night');
-    }
-  });
+  function syncIcon(theme: string) {
+    const icons: Record<string, string> = { night: '◑', moonlight: '☽', sun: '☀', day: '○' };
+    if (icon) icon.textContent = icons[theme] ?? '◑';
+    coffeeBtn?.classList.toggle('active', isCoffeeMode(theme));
+  }
 
   function applyTheme(theme: string) {
     localStorage.setItem('theme', theme);
@@ -74,10 +58,26 @@ const current = Astro.url.pathname;
     } else {
       root.setAttribute('data-theme', theme);
     }
-    const icons: Record<string, string> = { night: '◑', moonlight: '☽', sun: '☀', day: '○' };
-    if (icon) icon.textContent = icons[theme] ?? '◑';
-    coffeeBtn?.classList.toggle('active', isCoffeeMode(theme));
+    syncIcon(theme);
   }
+
+  // Sync icon to whatever the inline script already set
+  syncIcon(root.getAttribute('data-theme') ?? 'night');
+
+  btn?.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') ?? 'night';
+    applyTheme(isCoffeeMode(current)
+      ? (current === 'night' ? 'day' : 'night')
+      : (current === 'moonlight' ? 'sun' : 'moonlight'));
+  });
+
+  coffeeBtn?.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') ?? 'night';
+    const isLight = current === 'sun' || current === 'day';
+    applyTheme(isCoffeeMode(current)
+      ? (isLight ? 'sun' : 'moonlight')
+      : (isLight ? 'day' : 'night'));
+  });
 </script>
 
 <style>
