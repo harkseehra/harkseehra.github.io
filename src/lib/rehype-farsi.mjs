@@ -1,6 +1,7 @@
 import { visit } from 'unist-util-visit';
 
-const ARABIC_RE = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+/g;
+// Match Arabic/Persian runs including spaces between Arabic words
+const ARABIC_RE = /([؀-ۿݐ-ݿࢠ-ࣿﭐ-﷿ﹰ-﻿]+(\s+[؀-ۿݐ-ݿࢠ-ࣿﭐ-﷿ﹰ-﻿]+)*)/g;
 
 export function rehypeFarsi() {
   return (tree) => {
@@ -18,7 +19,7 @@ export function rehypeFarsi() {
         parts.push({
           type: 'element',
           tagName: 'span',
-          properties: { className: ['farsi'], dir: 'rtl' },
+          properties: { className: ['farsi'] },
           children: [{ type: 'text', value: m[0] }],
         });
         last = ARABIC_RE.lastIndex;
