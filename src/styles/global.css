@@ -1,5 +1,14 @@
 @import "./tokens.css";
 
+/* ── Self-hosted fonts ── */
+@font-face {
+  font-family: 'Noori Nastaliq';
+  src: url('/fonts/NooriNastaliq-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ── Reset ── */
 *, *::before, *::after {
   box-sizing: border-box;
