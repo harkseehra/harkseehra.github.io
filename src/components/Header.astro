@@ -18,26 +18,26 @@ const current = Astro.url.pathname;
       </a>
     ))}
   </nav>
-  <div class="header-controls">
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle day/night mode" title="Toggle day/night">
-      <span class="theme-icon">◑</span>
-    </button>
-    <button class="coffee-toggle" id="coffee-toggle" aria-label="Toggle coffee mode" title="Coffee mode">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
-        <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
-        <line x1="6" y1="2" x2="6" y2="4"/>
-        <line x1="10" y1="2" x2="10" y2="4"/>
-        <line x1="14" y1="2" x2="14" y2="4"/>
-      </svg>
-    </button>
-  </div>
 </header>
 
 <!--
-  Hamburger + overlay are OUTSIDE <header> so they have independent
+  Controls, hamburger + overlay are all OUTSIDE <header> so they have independent
   stacking contexts — not trapped by the sticky header's backdrop-filter.
 -->
+<div class="header-controls">
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle day/night mode" title="Toggle day/night">
+    <span class="theme-icon">◑</span>
+  </button>
+  <button class="coffee-toggle" id="coffee-toggle" aria-label="Toggle coffee mode" title="Coffee mode">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
+      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+      <line x1="6" y1="2" x2="6" y2="4"/>
+      <line x1="10" y1="2" x2="10" y2="4"/>
+      <line x1="14" y1="2" x2="14" y2="4"/>
+    </svg>
+  </button>
+</div>
 <button class="hamburger" id="hamburger-btn" aria-label="Open navigation" aria-expanded="false">
   <span></span><span></span><span></span>
 </button>
@@ -198,8 +198,17 @@ header.scrolled {
 .desktop-nav a:hover,
 .desktop-nav a.active { background-size: 100% 100%; color: var(--paper); }
 
-/* ── Controls (desktop) ── */
-.header-controls { margin-left: auto; display: flex; align-items: center; gap: 0.5rem; }
+/* ── Controls — fixed outside header to escape backdrop-filter stacking context ── */
+.header-controls {
+  position: fixed;
+  top: 0;
+  right: 1.5rem;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.25rem 0;
+}
 
 .theme-toggle {
   font-family: var(--font-mono);
@@ -241,8 +250,7 @@ header.scrolled {
 
   /* Compact single-row header */
   header { padding: 0.7rem 1rem; gap: 0; flex-wrap: nowrap; }
-  .desktop-nav  { display: none; }
-  .header-controls { display: none; }
+  .desktop-nav { display: none; }
 
   .site-name {
     flex: 1;
@@ -255,16 +263,12 @@ header.scrolled {
   header.reading-mode .site-wordmark { display: none; }
   header.reading-mode .reading-title { display: block; }
 
-  /* ── Floating pill — center right ──
-     Sits outside the header stacking context, always interactive. */
+  /* ── Floating pill — vertically centered on right edge ── */
   .header-controls {
-    display: flex;
     flex-direction: column;
-    position: fixed;
+    top: 50dvh;
     right: 0.75rem;
-    top: 50%;
     transform: translateY(-50%);
-    z-index: 300;
     gap: 0.25rem;
     padding: 0.4rem 0.35rem;
     background: var(--paper-glass);
@@ -272,6 +276,7 @@ header.scrolled {
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--rule);
     border-radius: 999px;
+    z-index: 300;
   }
 
   .header-controls .theme-toggle {
