@@ -48,6 +48,7 @@ const siteTitle = title === 'The Truth' ? 'THE TRUTH · حقیقت' : `${title} 
     <Footer />
     <script>
       let scrollCtrl: AbortController | null = null;
+      let h1Watcher: IntersectionObserver | null = null;
 
       function initPage() {
         // ── Scroll fade ──
@@ -67,7 +68,6 @@ const siteTitle = title === 'The Truth' ? 'THE TRUTH · حقیقت' : `${title} 
           el.classList.add('scroll-fade');
           const rect = el.getBoundingClientRect();
           if (rect.top < vh && rect.bottom > 0) {
-            // Already in viewport — show immediately, no observer needed
             el.classList.add('visible');
           } else {
             fadeObserver.observe(el);
@@ -88,6 +88,21 @@ const siteTitle = title === 'The Truth' ? 'THE TRUTH · حقیقت' : `${title} 
           signal: scrollCtrl.signal,
         });
         updateHeader();
+
+        // ── Article title in sticky header (mobile reading mode) ──
+        h1Watcher?.disconnect();
+        header?.classList.remove('reading-mode');
+
+        const pageH1 = document.querySelector('article h1');
+        const readingTitleEl = document.querySelector('.reading-title') as HTMLElement | null;
+
+        if (pageH1 && readingTitleEl && header) {
+          readingTitleEl.textContent = pageH1.textContent ?? '';
+          h1Watcher = new IntersectionObserver((entries) => {
+            header.classList.toggle('reading-mode', !entries[0].isIntersecting);
+          }, { rootMargin: '-70px 0px 0px 0px', threshold: 0 });
+          h1Watcher.observe(pageH1);
+        }
       }
 
       initPage();
