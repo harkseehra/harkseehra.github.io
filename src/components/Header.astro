@@ -8,9 +8,10 @@ const current = Astro.url.pathname;
 ---
 <header id="site-header">
   <a class="site-name" href="/">
-    THE TRUTH · حقیقت<span class="cursor" aria-hidden="true">▌</span>
+    <span class="site-wordmark">THE TRUTH · <span class="site-persian">حقیقت</span><span class="cursor" aria-hidden="true">▌</span></span>
+    <span class="reading-title" aria-hidden="true"></span>
   </a>
-  <nav>
+  <nav class="desktop-nav">
     {nav.map(({ href, label }) => (
       <a href={href} class:list={[{ active: current.startsWith(href) }]}>
         [{label}]
@@ -33,14 +34,21 @@ const current = Astro.url.pathname;
   </div>
 </header>
 
+<!-- Mobile bottom navigation bar -->
+<nav class="mobile-nav" aria-label="Site navigation">
+  {nav.map(({ href, label }) => (
+    <a href={href} class:list={[{ active: current.startsWith(href) }]}>
+      {label}
+    </a>
+  ))}
+</nav>
+
 <script>
   const root = document.documentElement;
   const btn = document.getElementById('theme-toggle');
   const icon = btn?.querySelector('.theme-icon');
   const coffeeBtn = document.getElementById('coffee-toggle');
 
-  // Coffee mode = warm variants: moonlight (dark) and day (light)
-  // Standard mode = clean variants: night (dark) and sun (light)
   function isCoffeeMode(theme: string): boolean {
     return theme === 'moonlight' || theme === 'day';
   }
@@ -61,25 +69,21 @@ const current = Astro.url.pathname;
     syncIcon(theme);
   }
 
-  // Sync icon to whatever the inline script already set
   syncIcon(root.getAttribute('data-theme') ?? 'night');
 
-  // Day/night toggle: flip between dark↔light within the current mode pair
   btn?.addEventListener('click', () => {
     const current = root.getAttribute('data-theme') ?? 'night';
     applyTheme(isCoffeeMode(current)
-      ? (current === 'moonlight' ? 'day' : 'moonlight')  // coffee:   moonlight ↔ day
-      : (current === 'night'     ? 'sun' : 'night'));     // standard: night ↔ sun
+      ? (current === 'moonlight' ? 'day' : 'moonlight')
+      : (current === 'night'     ? 'sun' : 'night'));
   });
 
-  // Coffee toggle: switch between standard and warm variant of the current dark/light state
   coffeeBtn?.addEventListener('click', () => {
     const current = root.getAttribute('data-theme') ?? 'night';
     const isLight = current === 'sun' || current === 'day';
     applyTheme(isCoffeeMode(current)
-      ? (isLight ? 'sun'      : 'night')      // exit coffee:  day→sun, moonlight→night
-      : (isLight ? 'day'      : 'moonlight'   // enter coffee: sun→day, night→moonlight
-    ));
+      ? (isLight ? 'sun'      : 'night')
+      : (isLight ? 'day'      : 'moonlight'));
   });
 </script>
 
@@ -113,12 +117,25 @@ header.scrolled {
   color: var(--royal-red);
   text-decoration: none;
   background-image: none;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
 }
 
 .site-name:hover {
   background-image: none;
   background: var(--royal-red);
   color: var(--paper);
+}
+
+.site-wordmark {
+  white-space: nowrap;
+}
+
+.site-persian {
+  font-family: var(--font-naskh);
+  font-style: normal;
+  letter-spacing: 0;
 }
 
 .cursor {
@@ -128,21 +145,33 @@ header.scrolled {
   margin-left: 1px;
 }
 
-nav {
+.reading-title {
+  display: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 58vw;
+  font-size: var(--t-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.desktop-nav {
   display: flex;
   gap: 1.25rem;
   align-items: center;
 }
 
-nav a {
+.desktop-nav a {
   font-family: var(--font-mono);
   font-size: var(--t-sm);
   color: var(--ink-dim);
   letter-spacing: 0.04em;
 }
 
-nav a:hover,
-nav a.active {
+.desktop-nav a:hover,
+.desktop-nav a.active {
   background-size: 100% 100%;
   color: var(--paper);
 }
@@ -199,23 +228,66 @@ nav a.active {
   transform: scale(0.93);
 }
 
+.mobile-nav {
+  display: none;
+}
+
 @media (max-width: 680px) {
   header {
-    padding: 1rem 1.25rem;
+    padding: 0.7rem 1rem;
     gap: 0;
+    flex-wrap: nowrap;
   }
 
   .site-name {
     flex: 1;
+    font-size: calc(var(--t-base) * 0.78);
+    letter-spacing: 0.08em;
   }
 
-  nav {
-    order: 3;
-    width: 100%;
-    gap: 1.1rem;
-    padding-top: 0.75rem;
+  .desktop-nav {
+    display: none;
+  }
+
+  header.reading-mode .site-wordmark {
+    display: none;
+  }
+
+  header.reading-mode .reading-title {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0.65rem 1.5rem;
+    padding-bottom: calc(0.65rem + env(safe-area-inset-bottom, 0px));
+    background: var(--paper-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-top: 1px solid var(--rule);
-    margin-top: 0.5rem;
+  }
+
+  .mobile-nav a {
+    font-family: var(--font-mono);
+    font-size: var(--t-xs);
+    color: var(--ink-dim);
+    letter-spacing: 0.06em;
+    background-image: none;
+    padding: 0.25rem 0.5rem;
+    transition: color 0.15s ease;
+  }
+
+  .mobile-nav a.active,
+  .mobile-nav a:hover {
+    color: var(--ink);
+    background: none;
   }
 }
 </style>
