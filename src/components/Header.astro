@@ -6,7 +6,7 @@ const nav = [
 ];
 const current = Astro.url.pathname;
 ---
-<header>
+<header id="site-header">
   <a class="site-name" href="/">
     THE TRUTH · حقیقت<span class="cursor" aria-hidden="true">▌</span>
   </a>
@@ -82,13 +82,24 @@ const current = Astro.url.pathname;
 
 <style>
 header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 0.6rem 1.5rem;
   padding: 1.25rem 1.5rem;
   border-bottom: 1px solid var(--rule);
-  transition: border-color 0.3s ease;
+  background: var(--paper);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.scrolled {
+  background: var(--paper-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 var(--rule);
 }
 
 .site-name {
@@ -149,13 +160,17 @@ nav a.active {
   cursor: pointer;
   padding: 0.15rem 0.5rem;
   line-height: 1;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .theme-toggle:hover {
   border-color: var(--ink);
   color: var(--paper);
   background: var(--ink);
+}
+
+.theme-toggle:active {
+  transform: scale(0.93);
 }
 
 .coffee-toggle {
@@ -167,7 +182,7 @@ nav a.active {
   line-height: 0;
   display: inline-flex;
   align-items: center;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .coffee-toggle.active,
@@ -175,6 +190,10 @@ nav a.active {
   border-color: var(--ink);
   color: var(--paper);
   background: var(--ink);
+}
+
+.coffee-toggle:active {
+  transform: scale(0.93);
 }
 
 @media (max-width: 680px) {

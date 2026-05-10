@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 
 interface Props {
@@ -26,6 +27,7 @@ const siteTitle = title === 'The Truth' ? 'THE TRUTH · حقیقت' : `${title} 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=IM+Fell+English:ital@0;1&family=Noto+Serif+Gurmukhi:wght@400;700&display=swap" />
+    <ClientRouter />
     <!-- Apply saved theme before paint; fall back to system preference -->
     <script is:inline>
       const saved = localStorage.getItem('theme');
@@ -45,21 +47,44 @@ const siteTitle = title === 'The Truth' ? 'THE TRUTH · حقیقت' : `${title} 
     </main>
     <Footer />
     <script>
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+      let scrollCtrl: AbortController | null = null;
 
-      document.querySelectorAll(
-        'main > *, article > p, article > h2, article > h3, article > blockquote, article > ul, article > ol, article > hr, article > img'
-      ).forEach(el => {
-        el.classList.add('scroll-fade');
-        observer.observe(el);
-      });
+      function initPage() {
+        // ── Scroll fade ──
+        const fadeObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              fadeObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+
+        document.querySelectorAll(
+          'main > *, article > p, article > h2, article > h3, article > blockquote, article > ul, article > ol, article > hr, article > img'
+        ).forEach(el => {
+          el.classList.add('scroll-fade');
+          fadeObserver.observe(el);
+        });
+
+        // ── Header frosted glass on scroll ──
+        scrollCtrl?.abort();
+        scrollCtrl = new AbortController();
+        const header = document.getElementById('site-header');
+
+        function updateHeader() {
+          header?.classList.toggle('scrolled', window.scrollY > 50);
+        }
+
+        window.addEventListener('scroll', updateHeader, {
+          passive: true,
+          signal: scrollCtrl.signal,
+        });
+        updateHeader();
+      }
+
+      initPage();
+      document.addEventListener('astro:page-load', initPage);
     </script>
   </body>
 </html>
