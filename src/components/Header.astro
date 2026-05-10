@@ -39,10 +39,10 @@ const current = Astro.url.pathname;
   const icon = btn?.querySelector('.theme-icon');
   const coffeeBtn = document.getElementById('coffee-toggle');
 
-  const coffeeThemes = ['night', 'day'];
-
+  // Coffee mode = warm variants: moonlight (dark) and day (light)
+  // Standard mode = clean variants: night (dark) and sun (light)
   function isCoffeeMode(theme: string): boolean {
-    return coffeeThemes.includes(theme);
+    return theme === 'moonlight' || theme === 'day';
   }
 
   function syncIcon(theme: string) {
@@ -64,19 +64,22 @@ const current = Astro.url.pathname;
   // Sync icon to whatever the inline script already set
   syncIcon(root.getAttribute('data-theme') ?? 'night');
 
+  // Day/night toggle: flip between dark↔light within the current mode pair
   btn?.addEventListener('click', () => {
     const current = root.getAttribute('data-theme') ?? 'night';
     applyTheme(isCoffeeMode(current)
-      ? (current === 'night' ? 'day' : 'night')
-      : (current === 'moonlight' ? 'sun' : 'moonlight'));
+      ? (current === 'moonlight' ? 'day' : 'moonlight')  // coffee:   moonlight ↔ day
+      : (current === 'night'     ? 'sun' : 'night'));     // standard: night ↔ sun
   });
 
+  // Coffee toggle: switch between standard and warm variant of the current dark/light state
   coffeeBtn?.addEventListener('click', () => {
     const current = root.getAttribute('data-theme') ?? 'night';
     const isLight = current === 'sun' || current === 'day';
     applyTheme(isCoffeeMode(current)
-      ? (isLight ? 'sun' : 'moonlight')
-      : (isLight ? 'day' : 'night'));
+      ? (isLight ? 'sun'      : 'night')      // exit coffee:  day→sun, moonlight→night
+      : (isLight ? 'day'      : 'moonlight'   // enter coffee: sun→day, night→moonlight
+    ));
   });
 </script>
 
