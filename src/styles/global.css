@@ -2,6 +2,14 @@
 
 /* ── Self-hosted fonts ── */
 @font-face {
+  font-family: 'Faiz Lahori Nastaleeq';
+  src: url('/fonts/FaizLahoriNastaleeq.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Mehr Nastaliq Web';
   src: url('/fonts/MehrNastaliq.woff2') format('woff2');
   font-weight: 400;
