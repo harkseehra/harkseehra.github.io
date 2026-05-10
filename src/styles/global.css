@@ -220,12 +220,12 @@ article pre code {
 /* ── Mobile type scale ── */
 @media (max-width: 680px) {
   :root {
-    --t-base: 1.2rem;
+    --t-base: 1.5rem;
     --measure: 100%;
   }
 
   main {
-    padding: 2.5rem 1.25rem calc(4.5rem + env(safe-area-inset-bottom, 0px));
+    padding: 2.5rem 1.25rem;
   }
 }
 
